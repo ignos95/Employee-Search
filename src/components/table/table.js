@@ -2,27 +2,25 @@ import React from 'react'
 import Row from './row/row'
 
 const Table=(props)=>{
-  
-    let rows=<tr>
-              <td>--Nil--</td>
-              <td>--Nil--</td>
-              <td>--Nil--</td>
-             </tr>
-
+    console.log(props.tData, 'tdata table.js' )
+    let rows=null
     if(props.tData)
     {
     rows=props.tData.map( (itm,ind)=>{ return(
                                         <Row name={itm.name} 
-                                             age={itm.age}
-                                             pos={itm.pos}
-                                             key={ind}/>
+                                            age={itm.age}
+                                            pos={itm.pos}
+                                            
+                                            key={ind}/>
                                         )
                                 }
                         ) 
     }
-
-    return (
-           <table>
+   
+    let table=null
+    if(rows)
+    {
+     table=<table>
             <thead>      
              <tr>
                <th>Employee Name</th>
@@ -34,6 +32,12 @@ const Table=(props)=>{
              {rows}
             </tbody>
            </table>
+    }
+    rows=null
+    return (
+      <div>
+        {table}
+      </div>
     )
     
 }
