@@ -1,0 +1,26 @@
+.employee_table table{
+    width: 90%;
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    margin-left: 20px;
+    background-color: rgb(180, 180, 180);
+}
+.employee_table th{
+    border: 1px solid black;
+}
+
+.employee_table td{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 5px;
+}
+
+.employee_table tr:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+@media(min-width:800px){
+    .employee_table td{
+        padding: 8px 20px;
+    }
+}

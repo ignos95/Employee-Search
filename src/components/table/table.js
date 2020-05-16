@@ -1,41 +1,43 @@
 import React from 'react'
+import Classes from './table.module.css'
+
 import Row from './row/row'
+import TableHeading from './heading/heading'
 
 const Table=(props)=>{
-    console.log(props.tData, 'tdata table.js' )
-    let rows=null
-    if(props.tData)
-    {
-    rows=props.tData.map( (itm,ind)=>{ return(
-                                        <Row name={itm.name} 
-                                            age={itm.age}
-                                            pos={itm.pos}
-                                            
-                                            key={ind}/>
-                                        )
-                                }
-                        ) 
-    }
-   
+
     let table=null
-    if(rows)
+    let tHeading=null
+    let rows= null
+    let tableData=props.tData
+
+    if(tableData.length>20)
+    tableData=tableData.filter( (_,ind)=>{
+                                            if( ind >= (props.pageNo*20-20)  &&  ind < (props.pageNo*20) ) return true
+                                            else return false
+                                           }
+                              )
+                                      
+    if(tableData.length)
     {
+     tHeading=<TableHeading obj={props.tData[0]} sortTable={props.sortTable}/>
+
+     rows=tableData.map(
+                          (itm,ind)=>(<Row obj={itm} key={ind}/>)
+                       )
+
      table=<table>
-            <thead>      
-             <tr>
-               <th>Employee Name</th>
-               <th>Age</th>
-               <th>Position</th>
-             </tr>
-            </thead>  
-            <tbody>
-             {rows}
-            </tbody>
+             <thead>      
+              {tHeading}
+             </thead>  
+             <tbody>
+              {rows}
+             </tbody>
            </table>
     }
-    rows=null
+    
     return (
-      <div>
+      <div className={Classes.employee_table}>
         {table}
       </div>
     )

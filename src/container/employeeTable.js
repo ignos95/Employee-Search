@@ -1,52 +1,260 @@
 import React from 'react'
+import Aux from '../hoc/auxiliary/auxiliary'
+import Data from './CompanyData.json'
+import Classes from './employeeTable.module.css'
 
-import CompanySearch from '../components/companySearch/companySearch'
+import SearchBar from '../components/searchBar/searchBar'
 import Table from '../components/table/table'
+import NameSearch from '../components/nameSearch/nameSearch'
+import Pagination from '../components/pagination/pagination'
+
 
 class EmployeeTable extends React.Component{
  state={
-   companyData:{
-                  Nexa:[
-                         {name:'Antony P T', age:25, pos:'Ex. Manager'},
-                         {name:'John George', age:35, pos:'Ex. Manager'}
-                       ],
-                  
-                  Extra_Smart:[
-                                {name:'Shown M Sooraj', age:45, pos:'Ex. Manager'},
-                                {name:'Rajiv S K', age:30, pos:'Sr. Manager'}
-                              ],  
-                  Acer_Tech:[
-                              {name:'Ben Maximillian', age:45, pos:'Ex. Manager'},
-                              {name:'Kevin James', age:55, pos:'Assosoate Manager'}
-                            ],  
-                  Techzilon:[
-                              {name:'Antony H', age:30, pos:'Manager'},
-                              {name:'Hormees John', age:25, pos:'Salesman'}
-                            ],  
-                  Soni:[
-                         {name:'David Abraham', age:40, pos:'Sr. Manager'},
-                         {name:'Zameen Muhammad', age:50, pos:'Sr. Manager'}
-                       ],  
-                  
-                },
-    currentTable:[]
- }
+
+    companyData:Data['employeeData'],
+    currentTable:[],
+    companyName:'',
+    branchName:'',
+    sort_flag:[],
+    nameSearchList:[],
+    pageNo:1
  
+ }
+
+ //selection dropdown
  selectionHandler=(cName)=>{
    if(cName==='select'){
-       this.setState({currentTable:[] })
+       this.setState({
+                      currentTable:[],
+                      pageNo:1,
+                      companyName:'',
+                      branchName:''
+                    })
    }
-   else{
-       this.setState( { currentTable:this.state.companyData[cName].slice() } )
+   else if(cName==='--all--'){
+       this.setState( { 
+                        currentTable:[ ...this.state.companyData ] ,
+                        pageNo:1,
+                        companyName:'--all--',
+                        branchName:''
+                    } )
+   }
+  else{ 
+      
+       const newTable=this.state.companyData.filter(
+                                                     (itm)=> (itm['company']===cName)
+                                                   )
+       this.setState( { 
+                        currentTable:newTable,
+                        pageNo:1,
+                        companyName:cName,
+                        branchName:''
+                      } )
    }
  }
 
+ selectionHandler2=(bName)=>{
+   if(this.state.companyName==='--all--')
+     {
+       if( bName==='select')
+       {
+        this.setState( { 
+                        currentTable:[ ...this.state.companyData ],
+                        pageNo:1,
+                        branchName:''
+                     } )
+       }
+       else
+       {
+        const newTable=this.state.companyData.filter( itm => (itm['branch']===bName) )
+        this.setState( { 
+                        currentTable:newTable,
+                        pageNo:1,
+                        branchName:bName
+                     } )
+       }
+    }
+   else if(this.state.companyName !==''){
+       if( bName==='select')
+       {
+        const newTable=this.state.companyData.filter( itm => (itm['company']===this.state.companyName) )
+        this.setState( { 
+                        currentTable:newTable,
+                        pageNo:1,
+                        branchName:''
+                     } )
+       }
+       else
+       {
+        const newTable=this.state.companyData.filter( itm => (itm['company']===this.state.companyName && itm['branch']===bName) )
+        this.setState( { 
+                        currentTable:newTable,
+                        pageNo:1,
+                        branchName:bName
+                     } )
+       }
+    }
+   
+ }
+
+ //SORT DIRECTLY from Table
+
+ sortFlag=(name)=>{
+   if(this.state.sort_flag.indexOf(name)===-1)
+   {
+     this.state.sort_flag.push(name)
+     this.sortTable(name)
+   }
+   else{
+         this.sortTable('-'+name)
+         const arr=[...this.state.sort_flag]
+         const index=arr.indexOf(name)
+         arr.splice(index,1)
+         this.setState({sort_flag: arr})
+       }
+ }
+ 
+
+ //SORT Current Table from dropdown
+
+ sortTable=(name)=>{
+
+ function dynamicSort(property) 
+   {
+     let sortOrder = 1;
+  
+     if(property[0] === "-") {
+         sortOrder = -1;
+         property = property.substr(1);
+     }
+  
+     return function (a,b) {
+         if(sortOrder === -1)
+          {
+             if(property==='age')
+              return b[property]-a[property] 
+             else 
+              return b[property].localeCompare(a[property])
+          }
+         else
+         {
+             if(property==='age')
+              return a[property]-b[property]
+             else
+              return a[property].localeCompare(b[property])
+         }        
+     }
+   }
+
+ const newTable=[...this.state.currentTable].sort( dynamicSort(name) )
+ this.setState({ 
+                 currentTable:newTable,
+                 pageNo:1
+              })
+
+}
+
+// NAME SEARCHBAR
+
+nameSearchList=(event)=>{
+
+  if(event)
+  {
+   let ftr=null
+   const namesArr=this.state.companyData.map( itm=>(itm['name']) )
+   ftr=namesArr.filter(
+                       itm=>{ 
+                              if(itm.toUpperCase().search( event.toUpperCase() ) >= 0) return true
+                              else return false   
+                            }
+                      )
+    
+   this.setState({ nameSearchList:ftr})
+  }
+  else this.setState({ nameSearchList:[]})
+
+}
+
+nameSearch=(name)=>{
+  
+  const newTable=this.state.companyData.filter(
+                                                (itm)=>( itm["name"]===name )
+                                              )
+  this.setState( { 
+                   currentTable:newTable,
+                   pageNo:1,
+                   nameSearchList:[],
+                   companyName:'',
+                   branch:''
+               } )
+
+}
+
+clearNameSearch=()=>{
+  
+  this.setState({ nameSearchList:[] })
+
+}
+
+//pagination
+
+pageHandler=(pg,P_len)=>{
+    if(pg==='prev'){
+      if(this.state.pageNo>1){
+        this.setState( prevState=>{ 
+                                   return( { pageNo: prevState.pageNo-1 } )
+                                  }
+                     )
+      }
+    }
+    else if(pg==='nxt'){
+      if(this.state.pageNo<P_len){
+        this.setState( prevState=>{
+                                   return( { pageNo:prevState.pageNo+1 } )
+                                  }
+                     )
+      }
+    }
+    else this.setState({pageNo:pg})
+  }
+
  render(){
+
+
      return(
-         <div>
-          <CompanySearch data={this.state.companyData} click={this.selectionHandler}/>
-          <Table tData={ this.state.currentTable } />
-         </div>
+         <Aux>
+
+          { 
+           this.state.currentTable.length>20? <div className={Classes.pageNum_top} >PAGE: {this.state.pageNo}</div>:null  
+          }
+
+          <SearchBar     data={this.state.companyData}
+                         tData={this.state.currentTable}
+                         sortTable={this.sortTable}
+                         company={this.state.companyName} 
+                         branch={this.state.branchName}
+                         click={this.selectionHandler}
+                         click2={this.selectionHandler2} />
+
+          <NameSearch    list={this.state.nameSearchList}
+                         nameSearch={this.nameSearchList}
+                         click={this.nameSearch}
+                         clear={this.clearNameSearch}/>
+
+          <Table         tData={this.state.currentTable}
+                         company={this.state.companyName}
+                         sortTable={this.sortFlag}
+                         pageNo={this.state.pageNo}/>
+
+          <Pagination    tData={this.state.currentTable}
+                         changePage={this.pageHandler}/>
+
+          { 
+           this.state.currentTable.length>20? <div className={Classes.pageNum_bottum}>PAGE: {this.state.pageNo}</div>:null  
+          }
+     
+         </Aux>
      )
  }
 }

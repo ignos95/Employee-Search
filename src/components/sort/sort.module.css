@@ -1,0 +1,55 @@
+.Sort{
+    padding-left: 30px;
+    float: right;
+}
+
+.Sort ul{
+    list-style-type: none;
+}
+
+.Sort li{
+    padding: 3px;
+    
+    cursor: pointer;
+}
+
+.SortBtn{
+    background-color: rgb(200, 200, 200);
+    padding: 2px 10px;
+    box-sizing: border-box;
+}
+
+.Ul_Main{
+    position: absolute;
+    padding: 5px 5px; 
+    background-color: rgb(220, 220, 220);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, .5);
+    display: none;
+}
+
+.SortBtn:hover{
+    background-color: honeydew;
+}
+
+.Sort:hover .Ul_Main{
+    display: block;
+    margin-top: 0px;
+}
+
+.Ul_Name, .Ul_Company, .Ul_Branch{
+    display: none;
+}
+
+.Name_line:hover,.Name_line:hover .Ul_Name,
+.Company_line:hover,.Company_line:hover .Ul_Company,
+.Branch_line:hover,.Branch_line:hover .Ul_Branch{
+    vertical-align: top;
+    background-color: ivory;
+    display: inline-block;
+}
+
+.Ul_Name li:hover,
+.Ul_Company li:hover,
+.Ul_Branch li:hover{
+  background-color: rgba(128, 128, 128, 0.5);
+}

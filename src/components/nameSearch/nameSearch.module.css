@@ -1,0 +1,22 @@
+.nameSearch{
+    position: absolute;
+    right: 30px;
+    top: 23px;
+}
+
+.nameSearch ul{
+    list-style: none;
+    background-color: gray;
+    height: 200px;
+    overflow: scroll;
+    box-shadow: 10px 15px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nameSearch li{
+    padding: 2px;
+}
+
+.nameSearch li:hover{
+    background-color: rgb(180, 180, 180);
+    cursor: pointer;
+}

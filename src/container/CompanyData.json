@@ -1,0 +1,111 @@
+{
+    "employeeData":[
+                       {"name":"Antony P T", "age":45, "pos":"Ex. Manager","company":"Nexa","branch":"Delhi"},
+                       {"name":"Usha S", "age":35, "pos":"Sr. Manager","company":"Nexa","branch":"Delhi"},
+                       {"name":"Ravi Shankar", "age":25, "pos":"Salesman","company":"Nexa","branch":"Delhi"},
+                       {"name":"Adithya S", "age":24, "pos":"Salesman","company":"Nexa","branch":"Delhi"},
+
+
+                       {"name":"Thomas George", "age":45, "pos":"Ex. Manager","company":"Nexa","branch":"Kolkata"},
+                       {"name":"Soni T", "age":35, "pos":"Sr. Manager","company":"Nexa","branch":"Kolkata"},
+                       {"name":"George T S", "age":25, "pos":"Salesman","company":"Nexa","branch":"Kolkata"},
+                       {"name":"Sanju Kumar", "age":24, "pos":"Salesman","company":"Nexa","branch":"Kolkata"},
+
+                       {"name":"Alen James", "age":45, "pos":"Ex. Manager","company":"Nexa","branch":"Kochi"},
+                       {"name":"Aby Thomas", "age":35, "pos":"Sr. Manager","company":"Nexa","branch":"Kochi"},
+                       {"name":"Shankar K T", "age":25, "pos":"Salesman","company":"Nexa","branch":"Kochi"},
+                       {"name":"Paul James", "age":24, "pos":"Salesman","company":"Nexa","branch":"Kochi"},
+
+                       {"name":"James G", "age":45, "pos":"Ex. Manager","company":"Nexa","branch":"Banglore"},
+                       {"name":"Thomas T", "age":35, "pos":"Sr. Manager","company":"Nexa","branch":"Banglore"},
+                       {"name":"Shankar T", "age":25, "pos":"Salesman","company":"Nexa","branch":"Banglore"},
+                       {"name":"Paul K", "age":24, "pos":"Salesman","company":"Nexa","branch":"Banglore"},
+
+
+                       {"name":"Sham M Sooraj", "age":45, "pos":"Ex. Manager","company":"Extra_Smart","branch":"Delhi"},
+                       {"name":"Rajiv S K", "age":30, "pos":"Sr. Manager","company":"Extra_Smart","branch":"Delhi"},
+                       {"name":"Antony P T", "age":25, "pos":"Manager","company":"Extra_Smart","branch":"Delhi"},
+                       {"name":"Athul S Suresh", "age":24, "pos":"Receptionist","company":"Extra_Smart","branch":"Delhi"},
+                        
+                       {"name":"Sumithra Raj", "age":45, "pos":"Ex. Manager","company":"Extra_Smart","branch":"Kolkata"},
+                       {"name":"Johny Tom", "age":35, "pos":"Sr. Manager","company":"Extra_Smart","branch":"Kolkata"},
+                       {"name":"Tomas Karan", "age":25, "pos":"Salesman","company":"Extra_Smart","branch":"Kolkata"},
+                       {"name":"Shekar Thambi", "age":24, "pos":"Salesman","company":"Extra_Smart","branch":"Kolkata"},
+
+                       {"name":"Aleena Benny", "age":45, "pos":"Ex. Manager","company":"Extra_Smart","branch":"Kochi"},
+                       {"name":"Aiswarya Manoj", "age":35, "pos":"Sr. Manager","company":"Extra_Smart","branch":"Kochi"},
+                       {"name":"Tony Thomas", "age":25, "pos":"Salesman","company":"Extra_Smart","branch":"Kochi"},
+                       {"name":"Ajith George", "age":24, "pos":"Salesman","company":"Extra_Smart","branch":"Kochi"},
+
+
+                       {"name":"Ben Maximillian", "age":45, "pos":"Ex. Manager","company":"Acer_Tech","branch":"Delhi"},
+                       {"name":"Kevin James", "age":40, "pos":"Assosoate Manager","company":"Acer_Tech","branch":"Delhi"},
+                       {"name":"Aswin T Paul", "age":27, "pos":"Sales Executive","company":"Acer_Tech","branch":"Delhi"},
+                       {"name":"John George", "age":26, "pos":"Salesman","company":"Acer_Tech","branch":"Delhi"},
+
+                       {"name":"Chander K P", "age":45, "pos":"Ex. Manager","company":"Acer_Tech","branch":"Kolkata"},
+                       {"name":"Tom Miller", "age":35, "pos":"Sr. Manager","company":"Acer_Tech","branch":"Kolkata"},
+                       {"name":"James Hari", "age":25, "pos":"Salesman","company":"Acer_Tech","branch":"Kolkata"},
+                       {"name":"Adithya S", "age":24, "pos":"Salesman","company":"Acer_Tech","branch":"Kolkata"},
+
+                       {"name":"Antony T", "age":45, "pos":"Ex. Manager","company":"Acer_Tech","branch":"Kochi"},
+                       {"name":"Ujith S", "age":35, "pos":"Sr. Manager","company":"Acer_Tech","branch":"Kochi"},
+                       {"name":"Shankar L T", "age":25, "pos":"Salesman","company":"Acer_Tech","branch":"Kochi"},
+                       {"name":"Danny K", "age":24, "pos":"Salesman","company":"Acer_Tech","branch":"Kochi"},
+
+
+                       {"name":"Aiswarya R Nair", "age":44, "pos":"Ex.Manager","company":"Techzilon","branch":"Delhi"},
+                       {"name":"Hormees John", "age":35, "pos":"Sr.Manager","company":"Techzilon","branch":"Delhi"},
+                       {"name":"Antony P T", "age":35, "pos":"Manager","company":"Techzilon","branch":"Delhi"},
+                       {"name":"Gokul Sivaram", "age":27, "pos":"Associate Manger","company":"Techzilon","branch":"Delhi"},
+                         
+                       {"name":"Sujith Nair", "age":45, "pos":"Ex. Manager","company":"Techzilon","branch":"Kolkata"},
+                       {"name":"Praveen R", "age":35, "pos":"Sr. Manager","company":"Techzilon","branch":"Kolkata"},
+                       {"name":"R R Tom", "age":25, "pos":"Salesman","company":"Techzilon","branch":"Kolkata"},
+                       {"name":"Ajesh P", "age":24, "pos":"Salesman","company":"Techzilon","branch":"Kolkata"},
+
+                       {"name":"Antony Suraj", "age":45, "pos":"Ex. Manager","company":"Techzilon","branch":"Kochi"},
+                       {"name":"Ajay Kannan", "age":35, "pos":"Sr. Manager","company":"Techzilon","branch":"Kochi"},
+                       {"name":"M Sivaraman", "age":25, "pos":"Salesman","company":"Techzilon","branch":"Kochi"},
+                       {"name":"Adithya A", "age":24, "pos":"Salesman","company":"Techzilon","branch":"Kochi"},
+
+
+             
+                       {"name":"David Abraham", "age":50,"pos":"Ex. Manager","company":"Soni","branch":"Delhi"},
+                       {"name":"Zameen Muhammad", "age":40, "pos":"Sr. Manager","company":"Soni","branch":"Delhi"},           
+                       {"name":"Anjali Kumar", "age":30, "pos":"Manager","company":"Soni","branch":"Delhi"},
+                       {"name":"Jacob G C", "age":23, "pos":"Salesman","company":"Soni","branch":"Delhi"},
+                     
+              
+              
+                       {"name":"Nitty P T", "age":45, "pos":"Ex. Manager","company":"Soni","branch":"Kolkata"},
+                       {"name":"Tonny Urumis", "age":35, "pos":"Sr. Manager","company":"Soni","branch":"Kolkata"},
+                       {"name":"Ravi S K", "age":25, "pos":"Salesman","company":"Soni","branch":"Kolkata"},
+                       {"name":"Ajay T P", "age":24, "pos":"Salesman","company":"Soni","branch":"Kolkata"},
+ 
+              
+                       {"name":"Antony George", "age":45, "pos":"Ex. Manager","company":"Soni","branch":"Kochi"},
+                       {"name":"Sunny A", "age":35, "pos":"Sr. Manager","company":"Soni","branch":"Kochi"},
+                       {"name":"E Shankar", "age":25, "pos":"Salesman","company":"Soni","branch":"Kochi"},
+                       {"name":"Don T H", "age":24, "pos":"Salesman","company":"Soni","branch":"Kochi"},
+                     
+        
+
+                       {"name":"Paul J E", "age":50,"pos":"Ex. Manager","company":"Moz_Tech","branch":"Delhi"},
+                       {"name":"Adil T H", "age":40, "pos":"Manager","company":"Moz_Tech","branch":"Delhi"},           
+                       {"name":"Rjeev Dhamothar", "age":30, "pos":"Assosiate Manager","company":"Moz_Tech","branch":"Delhi"},
+                       {"name":"Sham Kumar S", "age":24, "pos":"Salesman","company":"Moz_Tech","branch":"Delhi"},
+           
+                  
+                       {"name":"Chandra Shekar", "age":45, "pos":"Ex. Manager","company":"Moz_Tech","branch":"Kolkata"},
+                       {"name":"Usha K", "age":35, "pos":"Sr. Manager","company":"Moz_Tech","branch":"Kolkata"},
+                       {"name":"Rajeev S", "age":25, "pos":"Salesman","company":"Moz_Tech","branch":"Kolkata"},
+                       {"name":"Sharath", "age":24, "pos":"Salesman","company":"Moz_Tech","branch":"Kolkata"},
+         
+               
+                       {"name":"Thomas K", "age":45, "pos":"Ex. Manager","company":"Moz_Tech","branch":"Kochi"},
+                       {"name":"Soumya S", "age":35, "pos":"Sr. Manager","company":"Moz_Tech","branch":"Kochi"},
+                       {"name":"Sanju G P", "age":25, "pos":"Salesman","company":"Moz_Tech","branch":"Kochi"},
+                       {"name":"Pranav T Y", "age":24, "pos":"Salesman","company":"Moz_Tech","branch":"Kochi"}
+                  ]
+}

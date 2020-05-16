@@ -1,0 +1,17 @@
+.pageNum_top{
+    float: right;
+    margin-right: 10%;
+    vertical-align: middle;
+    color: rgb(230, 230, 220);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.pageNum_bottum{
+    text-align: center;
+}
+
+@media(min-width:700px){
+    .pageNum_top{
+        padding: 25px;
+    }
+}
