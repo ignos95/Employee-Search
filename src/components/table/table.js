@@ -37,7 +37,7 @@ const Table=(props)=>{
     }
     
     return (
-      <div className={Classes.employee_table}>
+      <div className={props.darkMode?[Classes.employee_table,Classes.D_employee_table].join(' '):Classes.employee_table}>
         {table}
       </div>
     )

@@ -17,6 +17,7 @@ class EmployeeTable extends React.Component{
     companyName:'',
     branchName:'',
     sort_flag:[],
+    nameSeachInput:'',
     nameSearchList:[],
     pageNo:1
  
@@ -159,6 +160,8 @@ class EmployeeTable extends React.Component{
 
 nameSearchList=(event)=>{
 
+  this.setState({nameSeachInput:event}) // 2 way binding
+
   if(event)
   {
    let ftr=null
@@ -170,7 +173,14 @@ nameSearchList=(event)=>{
                             }
                       )
     
-   this.setState({ nameSearchList:ftr})
+   const uniqNames=[]
+   for(let i=0;i<ftr.length;i++)
+    {
+      if(uniqNames.indexOf(ftr[i]) === -1) 
+       uniqNames.push(ftr[i])
+    }
+ 
+   this.setState({ nameSearchList: uniqNames.sort()})
   }
   else this.setState({ nameSearchList:[]})
 
@@ -184,6 +194,7 @@ nameSearch=(name)=>{
   this.setState( { 
                    currentTable:newTable,
                    pageNo:1,
+                   nameSeachInput:'',
                    nameSearchList:[],
                    companyName:'',
                    branch:''
@@ -193,7 +204,10 @@ nameSearch=(name)=>{
 
 clearNameSearch=()=>{
   
-  this.setState({ nameSearchList:[] })
+  this.setState({
+                  nameSeachInput:'',
+                  nameSearchList:[]
+               })
 
 }
 
@@ -221,40 +235,51 @@ pageHandler=(pg,P_len)=>{
 
  render(){
 
+   return(
+   
+    <Aux>
+ 
+      <button onClick={ this.props.darkModeHandler } 
+              className={ this.props.darkMode? [Classes.DarkMode,Classes.D_DarkMode].join(' ') : Classes.DarkMode }>
+        Dark Mode
+      </button>
+      
+      { 
+       this.state.currentTable.length>20? <div className={this.props.darkMode? [Classes.pageNum_top ,Classes.D_pageNum_top].join(' ') : Classes.pageNum_top}>
+                                           PAGE: {this.state.pageNo}
+                                          </div>:null  
+      }
 
-     return(
-         <Aux>
+      <SearchBar     data={this.state.companyData}
+                     tData={this.state.currentTable}
+                     sortTable={this.sortTable}
+                     company={this.state.companyName} 
+                     branch={this.state.branchName}
+                     click={this.selectionHandler}
+                     click2={this.selectionHandler2} 
+                     darkMode={this.props.darkMode}/>
 
-          { 
-           this.state.currentTable.length>20? <div className={Classes.pageNum_top} >PAGE: {this.state.pageNo}</div>:null  
-          }
+      <NameSearch    list={this.state.nameSearchList}
+                     nameSearch={this.nameSearchList}
+                     nameSeachInput={this.state.nameSeachInput}
+                     click={this.nameSearch}
+                     clear={this.clearNameSearch}
+                     darkMode={this.props.darkMode}/>
 
-          <SearchBar     data={this.state.companyData}
-                         tData={this.state.currentTable}
-                         sortTable={this.sortTable}
-                         company={this.state.companyName} 
-                         branch={this.state.branchName}
-                         click={this.selectionHandler}
-                         click2={this.selectionHandler2} />
+      <Table         tData={this.state.currentTable}
+                     company={this.state.companyName}
+                     sortTable={this.sortFlag}
+                     pageNo={this.state.pageNo}
+                     darkMode={this.props.darkMode}/>
 
-          <NameSearch    list={this.state.nameSearchList}
-                         nameSearch={this.nameSearchList}
-                         click={this.nameSearch}
-                         clear={this.clearNameSearch}/>
+      <Pagination    tData={this.state.currentTable}
+                     changePage={this.pageHandler}/>
 
-          <Table         tData={this.state.currentTable}
-                         company={this.state.companyName}
-                         sortTable={this.sortFlag}
-                         pageNo={this.state.pageNo}/>
-
-          <Pagination    tData={this.state.currentTable}
-                         changePage={this.pageHandler}/>
-
-          { 
-           this.state.currentTable.length>20? <div className={Classes.pageNum_bottum}>PAGE: {this.state.pageNo}</div>:null  
-          }
-     
-         </Aux>
+      { 
+       this.state.currentTable.length>20? <div className={Classes.pageNum_bottum}>PAGE: {this.state.pageNo}</div>:null  
+      }
+       
+    </Aux>
      )
  }
 }

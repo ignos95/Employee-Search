@@ -21,9 +21,9 @@ const nameSeach=(props)=>{
                 </ul>
     }
     return(
-           <div className={Classes.nameSearch}>
+           <div className={props.darkMode?[Classes.nameSearch,Classes.D_nameSearch].join(' '):Classes.nameSearch}>
             <label>Search: </label>
-            <input onChange={ event=>{ props.nameSearch(event.target.value) } }/>
+            <input onChange={ event=>{ props.nameSearch(event.target.value) } }  value={props.nameSeachInput}/>
             <button onClick={props.clear}>clear</button>
             {ul_list}
            </div>  

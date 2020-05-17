@@ -4,7 +4,12 @@ const row=(props)=>{
 
      const rw=Object.keys(props.obj)
                       .map( 
-                           (i,ind)=>( <td key={ind}>{props.obj[i]}</td> )
+                           (i,ind)=>{
+                                     if(props.obj[i])
+                                      return ( <td key={ind}>{props.obj[i]}</td> )
+                                     else
+                                      return ( <td key={ind}>--Nill--</td> )
+                                   }
                           )
     
      return(

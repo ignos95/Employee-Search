@@ -1,14 +1,30 @@
+.DarkMode{
+    float: right;
+    margin-top: 2px;
+    border-radius: 5px;
+}
+.D_DarkMode{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-style: none;
+}
+
 .pageNum_top{
     float: right;
     margin-right: 10%;
     vertical-align: middle;
-    color: rgb(230, 230, 220);
+    color:black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.D_pageNum_top{
+    
+    color: rgb(230, 230, 220);
 }
 
 .pageNum_bottum{
     text-align: center;
 }
+
 
 @media(min-width:700px){
     .pageNum_top{

@@ -1,14 +1,10 @@
 import React from 'react';
 
-import './App.css';
-import Layout from './hoc/layout/layout';
-import EmployeeTable from './container/employeeTable'
+import Layout from './container/layout/layout';
 
 function App() {
   return (
-          <Layout>
-            <EmployeeTable/>
-          </Layout>
+          <Layout/>
          );
 }
 

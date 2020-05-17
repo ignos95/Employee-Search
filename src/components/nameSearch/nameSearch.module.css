@@ -6,10 +6,13 @@
 
 .nameSearch ul{
     list-style: none;
-    background-color: gray;
+    background-color: whitesmoke;
     height: 200px;
     overflow: scroll;
     box-shadow: 10px 15px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.D_nameSearch ul{
+    background-color: gray;
 }
 
 .nameSearch li{
@@ -17,6 +20,9 @@
 }
 
 .nameSearch li:hover{
-    background-color: rgb(180, 180, 180);
+    background-color: white;
     cursor: pointer;
+}
+.D_nameSearch li:hover{
+    background-color: rgb(180, 180, 180);
 }

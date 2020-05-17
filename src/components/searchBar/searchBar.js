@@ -6,7 +6,7 @@ import Sort from '../sort/sort'
 
 const companySearch=(props)=>
 {
-  const company=['Nexa','Extra_Smart','Acer_Tech','Techzilon','Soni','Moz_Tech'].sort()
+  const company=['Nexa','Extra Smart','Acer Tech','Techzilon','Soni','Moz Tech'].sort()
   const companyNames=company.map(
                                  (itm,ind)=>(<NameList Name={itm} 
                                                        click={props.click}
@@ -40,7 +40,7 @@ const companySearch=(props)=>
   }
 
  return(
-        <div className={Classes.SearchBar}>
+        <div className={props.darkMode?[Classes.SearchBar,Classes.D_SearchBar].join(' '):Classes.SearchBar}>
 
           <label>Choose a Compnay: </label>
           <select onChange={ (event)=>{props.click(event.target.value)} } value={props.company}>
@@ -65,7 +65,8 @@ const companySearch=(props)=>
           </select>
 
           
-          <Sort sortTable={props.sortTable}/>
+          <Sort sortTable={props.sortTable}
+                darkMode={props.darkMode}/>
 
         </div>
        )

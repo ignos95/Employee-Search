@@ -5,7 +5,7 @@ const sort=(props)=>{
 return(
        <div className={Classes.Sort}>
 
-         <button className={Classes.SortBtn}>
+         <button className={props.darkMode?[Classes.SortBtn,Classes.D_SortBtn].join(' '):Classes.SortBtn}>
            Sort <span className={Classes.DownArrow}> \/ </span>
          </button>
 
